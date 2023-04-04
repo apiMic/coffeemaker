@@ -6,8 +6,9 @@ public class CoffeeMachine {
     Ingredient milk;
     Ingredient water;
     int maxCoffee = 2000;
-    int maxMilk = 1000;
+    int maxMilk = 60;
     int maxWater = 1500;
+
 
     public CoffeeMachine() {
 
@@ -42,7 +43,7 @@ public class CoffeeMachine {
         grinding();
         heating();
         pouringWater();
-        pouringMilk();
+        pouringMilk(50);
         System.out.println("Coffee ready.");
     }
 
@@ -79,11 +80,11 @@ public class CoffeeMachine {
 
     }
 
-    private void pouringMilk() {
+    private void pouringMilk(int milkDose) {
         try {
             System.out.printf("Pouring milk...\n");
-            Thread.sleep(3 * 1000);
-            milk.amount -= 50;
+            Thread.sleep(milkDose * 100);
+            milk.amount -= milkDose;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
